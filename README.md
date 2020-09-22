@@ -9,7 +9,7 @@ mdformat-black is an [mdformat](https://github.com/executablebooks/mdformat) plu
 that makes mdformat format Python code blocks with [Black](https://github.com/psf/black).
 ## Usage
 Install with:
-```console
+```bash
 pip install mdformat-black
 ```
 
