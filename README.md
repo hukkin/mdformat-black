@@ -16,10 +16,10 @@ pip install mdformat-black
 When using mdformat on the command line, Black formatting will be automatically enabled after install.
 
 When using mdformat Python API, code formatting for Python will have to be enabled explicitly:
-```python
+````python
 import mdformat
 
-unformatted = "~~~python\n'''black converts quotes'''\n~~~\n"
+unformatted = "```python\n'''black converts quotes'''\n```\n"
 formatted = mdformat.text(unformatted, codeformatters={"python"})
-assert formatted == '~~~python\n"""black converts quotes"""\n~~~\n'
-```
+assert formatted == '```python\n"""black converts quotes"""\n```\n'
+````

@@ -8,16 +8,16 @@ def test_format_python():
 
 
 def test_mdformat_integration():
-    unformatted_md = """```python
+    unformatted_md = """~~~python
 def hello():
     print(
         'Hello world!'
     )
-```
+~~~
 """
-    formatted_md = """~~~python
+    formatted_md = """```python
 def hello():
     print("Hello world!")
-~~~
+```
 """
     assert mdformat.text(unformatted_md, codeformatters={"python"}) == formatted_md
