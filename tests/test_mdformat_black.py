@@ -4,7 +4,7 @@ import mdformat_black
 
 
 def test_format_python():
-    assert mdformat_black.format_python("print(\n''\n)") == 'print("")\n'
+    assert mdformat_black.format_python("print(\n''\n)", "") == 'print("")\n'
 
 
 def test_mdformat_integration():
