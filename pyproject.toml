@@ -30,18 +30,14 @@ packages = [
 "python" = "mdformat_black:format_python"
 
 [tool.poetry.dependencies]
-python = "^3.6"
+python = "^3.7"
 mdformat = ">=0.3.0"
-black = { version = "*", allow-prereleases = true }
+black = "*"
 
 [tool.poetry.dev-dependencies]
 # Tests
 pytest = "*"
 pytest-randomly = "*"
-
-# Tools
-pre-commit = "*"
-bump2version = "*"
 
 
 [tool.isort]
