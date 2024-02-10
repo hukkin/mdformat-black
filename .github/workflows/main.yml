@@ -17,7 +17,7 @@ permissions:
 env:
   PYTHONUTF8: "1"
   python-version: 3.x
-  cache: pip
+  cache: poetry
 
 jobs:
   test:
@@ -31,19 +31,19 @@ jobs:
     runs-on: ${{matrix.runs-on}}
     steps:
       - uses: actions/checkout@v4
+      - name: Install dependencies
+        run: |
+          pip install poetry
       - uses: actions/setup-python@v4
         with:
           python-version: ${{env.python-version}}
           cache: ${{env.cache}}
-          cache-dependency-path: |-
-            requirements.txt
-            requirements/dev.txt
       - name: Install dependencies
         run: |
-          pip install -e '.[dev]'
+          poetry install
       - name: Test
         run: |
-          pytest --cov
+          poetry run pytest --cov
       - uses: codecov/codecov-action@v3
 
   build:
@@ -58,13 +58,13 @@ jobs:
     runs-on: ${{matrix.runs-on}}
     steps:
       - uses: actions/checkout@v4
+      - name: Install dependencies
+        run: |
+          pip install poetry
       - uses: actions/setup-python@v4
         with:
           python-version: ${{env.python-version}}
           cache: ${{env.cache}}
-          cache-dependency-path: |-
-            requirements.txt
-            requirements/dev.txt
       - name: Install dependencies
         run: |
           pip install build
