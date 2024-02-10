@@ -1,10 +1,9 @@
 import mdformat
-
-import mdformat_black
+import mdformat_ruff
 
 
 def test_format_python():
-    assert mdformat_black.format_python("print(\n''\n)", "") == 'print("")\n'
+    assert mdformat_ruff.format_python("print(\n''\n)", "") == 'print("")\n'
 
 
 def test_mdformat_integration():
@@ -20,4 +19,7 @@ def hello():
     print("Hello world!")
 ```
 """
-    assert mdformat.text(unformatted_md, codeformatters={"python"}) == formatted_md
+    assert (
+        mdformat.text(unformatted_md, codeformatters={"python"})
+        == formatted_md
+    )
