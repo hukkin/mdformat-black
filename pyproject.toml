@@ -2,7 +2,6 @@
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
 
-
 [tool.poetry]
 name = "mdformat-ruff"
 version = "0.1.1"  # DO NOT EDIT THIS LINE MANUALLY. LET bump2version UTILITY DO IT
@@ -12,19 +11,20 @@ repository = "https://github.com/Freed-Wu/mdformat-ruff"
 readme = "README.md"
 license = "MIT"
 classifiers = [
-    "Topic :: Documentation",
-    "Topic :: Text Processing :: Markup",
-    "Typing :: Typed",
+  "Topic :: Documentation",
+  "Topic :: Text Processing :: Markup",
+  "Typing :: Typed",
 ]
 keywords = ["mdformat", "markdown", "commonmark", "formatter"]
 
-packages = [
-    {include = "mdformat_ruff"},
-]
-#include = ["mdformat_ruff/py.typed"]
+packages = [{ include = "mdformat_ruff" }]
+include = ["mdformat_ruff/py.typed"]
 
-#[tool.poetry.urls]
-#"Changelog" = "https://github.com/Freed-Wu/mdformat-ruff/blob/master/CHANGELOG.md"
+[tool.poetry.urls]
+Homepage = "https://mdformat-ruff.readthedocs.io"
+Download = "https://github.com/Freed-Wu/mdformat-ruff/releases"
+"Bug Report" = "https://github.com/Freed-Wu/mdformat-ruff/issues"
+Source = "https://github.com/Freed-Wu/mdformat-ruff"
 
 [tool.poetry.plugins."mdformat.codeformatter"]
 "python" = "mdformat_ruff:format_python"
@@ -36,3 +36,4 @@ ruff = "*"
 [tool.poetry.group.dev.dependencies]
 # Tests
 pytest-cov = "*"
+mdformat = "*"
