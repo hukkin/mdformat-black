@@ -65,7 +65,7 @@ repos:
           - mdformat-toc
           - mdformat-deflist
           - mdformat-beautysh
-          - mdformat-black
+          - mdformat-ruff
           - mdformat-config
   - repo: https://github.com/DavidAnson/markdownlint-cli2
     rev: v0.12.1
