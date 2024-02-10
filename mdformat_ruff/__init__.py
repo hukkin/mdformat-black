@@ -3,7 +3,7 @@ import subprocess
 from ruff.__main__ import find_ruff_bin
 
 __version__ = (
-    "0.1.1"  # DO NOT EDIT THIS LINE MANUALLY. LET bump2version UTILITY DO IT
+    "0.1.2"  # DO NOT EDIT THIS LINE MANUALLY. LET bump2version UTILITY DO IT
 )
 
 
