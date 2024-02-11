@@ -16,11 +16,6 @@ def format_python(unformatted: str, _info_str: str) -> str:
     :type _info_str: str
     :rtype: str
     """
-    ps = subprocess.run(
-        [find_ruff_bin(), "format", "-"],
-        input=unformatted.encode(),
-        capture_output=True,
-    )
-    if ps.returncode == 0:
-        return ps.stdout.decode()
-    return unformatted
+    return subprocess.check_output(
+        [find_ruff_bin(), "format", "-"], input=unformatted.encode()
+    ).decode()
