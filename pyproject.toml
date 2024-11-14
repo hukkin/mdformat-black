@@ -1,43 +1,33 @@
 [build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
+requires = ["flit_core>=3.2.0,<4"]
+build-backend = "flit_core.buildapi"
 
 
-[tool.poetry]
+[project]
 name = "mdformat-black"
 version = "0.1.1"  # DO NOT EDIT THIS LINE MANUALLY. LET bump2version UTILITY DO IT
-authors = ["Taneli Hukkinen <hukkinj1@users.noreply.github.com>"]
+authors = [
+    { name = "Taneli Hukkinen", email = "hukkin@users.noreply.github.com"},
+]
 description = "Mdformat plugin to Blacken Python code blocks"
-repository = "https://github.com/hukkinj1/mdformat-black"
 readme = "README.md"
-license = "MIT"
+license = { file = "LICENSE" }
 classifiers = [
     "Topic :: Documentation",
     "Topic :: Text Processing :: Markup",
-    "Typing :: Typed",
 ]
 keywords = ["mdformat", "markdown", "commonmark", "formatter"]
-
-packages = [
-    {include = "mdformat_black"},
+requires-python = ">=3.9"
+dependencies = [
+    'mdformat >=0.3.0',
+    'black',
 ]
-#include = ["mdformat_black/py.typed"]
 
-#[tool.poetry.urls]
-#"Changelog" = "https://github.com/hukkinj1/mdformat-black/blob/master/CHANGELOG.md"
+[project.urls]
+"Homepage" = "https://github.com/hukkin/mdformat-black"
 
-[tool.poetry.plugins."mdformat.codeformatter"]
+[project.entry-points."mdformat.codeformatter"]
 "python" = "mdformat_black:format_python"
-
-[tool.poetry.dependencies]
-python = "^3.7"
-mdformat = ">=0.3.0"
-black = "*"
-
-[tool.poetry.dev-dependencies]
-# Tests
-pytest = "*"
-pytest-randomly = "*"
 
 
 [tool.isort]
@@ -56,3 +46,15 @@ profile = "black"
 [tool.pytest.ini_options]
 addopts = "--strict-markers --strict-config"
 xfail_strict = true
+
+
+[tool.tox]
+requires = ["tox>=4.21.1"]
+env_list = ["3.9", "3.10", "3.11", "3.12", "3.13"]
+
+[tool.tox.env_run_base]
+description = "Run tests under {base_python}"
+deps = ["-r tests/requirements.txt"]
+commands = [
+    ["pytest", { replace = "posargs", extend = true }],
+]

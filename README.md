@@ -1,4 +1,4 @@
-[![Build Status](https://github.com/hukkinj1/mdformat-black/workflows/Tests/badge.svg?branch=master)](<https://github.com/hukkinj1/mdformat-black/actions?query=workflow%3ATests+branch%3Amaster+event%3Apush>)
+[![Build Status](https://github.com/hukkin/mdformat-black/actions/workflows/tests.yaml/badge.svg?branch=master)](<https://github.com/hukkin/mdformat-black/actions?query=workflow%3ATests+branch%3Amaster+event%3Apush>)
 [![PyPI version](https://badge.fury.io/py/mdformat-black.svg)](<https://badge.fury.io/py/mdformat-black>)
 
 # mdformat-black
